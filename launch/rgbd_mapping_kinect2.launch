@@ -21,7 +21,7 @@
    <node pkg="tf" type="static_transform_publisher" name="kinect2_base_link"
         args="$(arg optical_rotate) kinect2_base_link kinect2_link 100" /> 
   
-   <!-- Choose visualization -->
+   <!-- Choose visualization ,rtabmapviz as the defualt-->
    <arg name="rviz" default="false" />
    <arg name="rtabmapviz" default="true" /> 
    
@@ -64,7 +64,7 @@
       <param name="GFTT/MinDistance" type="string" value="$(arg gftt_min_distance)"/>
     </node>
   
-    <!-- Visualisation RTAB-Map -->
+    <!-- Visualisation RTAB-Map in Rtabmapviz-->
     <node if="$(arg rtabmapviz)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="$(arg rtabmapviz_cfg)" output="screen">
       <param name="subscribe_depth" type="bool" value="true"/>
       <param name="subscribe_odom_info" type="bool" value="true"/>
